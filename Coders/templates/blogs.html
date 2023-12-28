@@ -1,4 +1,25 @@
-{%extends 'base.html'%} {%block body%}
-<h1 class="text-center">WELCOME TO CODERS BLOG</h1>
-{%for b in blog%} {{b.title}}<br />
-{%endfor%} {%endblock body%}
+{% extends 'base.html' %} {% block body %}
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Welcome to Coders Blog</h1>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for b in blog %}
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a
+              href="/blogpost/{{ b.slug }}"
+              class="text-decoration-none text-dark"
+              >{{ b.title }}</a
+            >
+          </h5>
+          <p class="card-text">{{ b.content|slice:150 }}</p>
+          <a href="/blogpost/{{ b.slug }}" class="btn btn-primary">Read more</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock body %}

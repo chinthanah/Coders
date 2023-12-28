@@ -10,7 +10,10 @@ def blogs(request):
     return render(request,'blogs.html',context)
 def blogpost(request, slug=None):
     if slug:
-        return HttpResponse(f"You are viewing {slug}")
+        blog=Blog.objects.filter(slug=slug).first()
+        context={'blog':blog}
+        return render(request,'blogpost.html',context)
+        
     else:
         return render(request,'blogpost.html')
 def Search(request):
