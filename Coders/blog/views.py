@@ -1,5 +1,6 @@
 from django.shortcuts import render,HttpResponse
 from blog.models import Blog
+from blog.models import Contact
 
 # Create your views here.
 def home(request):
@@ -19,6 +20,6 @@ def blogpost(request, slug=None):
 def Search(request):
     return render(request,'Search.html')
 
-def Contact(request):
-    return render(request,'Contact.html')
+def Contact(request,method="post"):
+    return render(request,method,'Contact.html')
 

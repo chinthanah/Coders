@@ -10,3 +10,9 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Contact(models.Model):
+    name=models.CharField(max_length=20)
+    email=models.CharField(max_length=20)
+    password=models.CharField(max_length=20)
+    message=models.TextField()
