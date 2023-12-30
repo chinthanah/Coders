@@ -20,6 +20,13 @@ def blogpost(request, slug=None):
 def Search(request):
     return render(request,'Search.html')
 
-def Contact(request,method="post"):
+def Contact(request):
+    if request.method=="POST":
+        name=request.POST['name']
+        email=request.POST['email']
+        password=request.POST['password']
+        message=request.POST['message']
+        contact=Contact(name=name,email=email,password=password,message=message)
+        contact.save()
     return render(request,method,'Contact.html')
 
