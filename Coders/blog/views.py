@@ -28,5 +28,5 @@ def Contact(request):
         message=request.POST['message']
         contact=Contact(name=name,email=email,password=password,message=message)
         contact.save()
-    return render(request,method,'Contact.html')
+    return render(request,'Contact.html')
 
